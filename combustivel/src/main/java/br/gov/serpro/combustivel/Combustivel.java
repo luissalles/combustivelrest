@@ -5,6 +5,7 @@ public class Combustivel {
 	private double preco;
 	
 	public double getPreco() {
+		preco = RandomNumber.getRandomNumberInRange(1, 10);
 		return preco;
 	}
 
