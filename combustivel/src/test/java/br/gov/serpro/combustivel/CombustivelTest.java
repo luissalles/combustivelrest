@@ -10,8 +10,9 @@ public class CombustivelTest {
 		Combustivel etanol = new Combustivel("Etanol");
 		Combustivel gasolina = new Combustivel("Gasolina");
 		
-		Assert.assertTrue((etanol.getPreco()/gasolina.getPreco())<=0.7);
-		
+		if(etanol.getPreco()/gasolina.getPreco()<=0.7) {
+			Assert.assertEquals("Etanol", etanol.getTipo());
+		}
 	}
 
 }
