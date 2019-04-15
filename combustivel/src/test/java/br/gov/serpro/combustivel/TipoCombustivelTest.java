@@ -9,10 +9,10 @@ public class TipoCombustivelTest {
 
 	@Test
 	public void testSeDeveAbastecerComEtanol() {
-		PrecoCombustivel precoEtanol = new PrecoCombustivel("Etanol");
-		PrecoCombustivel precoGasolina = new PrecoCombustivel("Gasolina");
+		Combustivel etanol = new Combustivel("Etanol");
+		Combustivel gasolina = new Combustivel("Gasolina");
 		
-		Assert.assertTrue((precoEtanol/precoGasolina)<=0.7);
+		Assert.assertTrue((etanol.getPreco()/gasolina.getPreco)<=0.7);
 		
 	}
 
