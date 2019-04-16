@@ -9,8 +9,9 @@ public class Combustivel {
 		return preco;
 	}
 
-	Combustivel(String tipoCombustivel){
+	public Combustivel(String tipoCombustivel){
 		this.tipo = tipoCombustivel;
+		this.preco = getPreco();
 	}
 
 	public String getTipo() {
