@@ -7,7 +7,7 @@ public class CombustivelTest {
 	Combustivel gasolina;
 	
 	@Test
-	public void testSeDeveAbastecerComEtanol() {
+	public void testSeDeveAbastecerComEtanolOuGasolina() {
 		double precoEtanol;
 		double precoGasolina;
 		
@@ -19,7 +19,7 @@ public class CombustivelTest {
 		
 		if((precoEtanol/precoGasolina) <= 0.7) {
 			System.out.println("Comprar "+etanol.getTipo());
-		}else {
+		}else if((precoEtanol/precoGasolina) > 0.7) {
 			System.out.println("Comprar "+gasolina.getTipo());
 		}
 	}

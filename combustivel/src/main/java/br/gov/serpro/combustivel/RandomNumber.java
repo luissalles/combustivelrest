@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class RandomNumber {
 
-	static double getRandomNumberInRange(double min, double max) {
+	public static double getRandomNumberInRange(double min, double max) {
 
 		if (min >= max) {
 			throw new IllegalArgumentException("max must be greater than min");
