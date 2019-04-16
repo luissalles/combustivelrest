@@ -1,44 +1,34 @@
 package br.gov.serpro.combustivel;
 
-import org.junit.Test;;
+import java.util.List;
+
+import org.junit.Test;
+
+import br.gov.serpro.combustivel.rest.CombustivelREST;;
 
 public class CombustivelTest {
-	Combustivel etanol;
-	Combustivel gasolina;
 	
 	@Test
-	public void testSeDeveAbastecerComEtanolOuGasolina() {
-		double precoEtanol;
-		double precoGasolina;
-		
-		etanol = new Combustivel("Etanol");
-		precoEtanol = etanol.getPreco();
-		gasolina = new Combustivel("Gasolina");
-		precoGasolina = gasolina.getPreco();
-		
-		
-		if((precoEtanol/precoGasolina) <= 0.7) {
-			System.out.println("Comprar "+etanol.getTipo());
-		}else {
-			System.out.println("Comprar "+gasolina.getTipo());
-		}
-	}
-
-	@Test
 	public void testSeDeveAbastecerComEtanolOuGasolinaRest() {
-		double precoEtanol;
-		double precoGasolina;
+		double precoEtanol = 0.00;
+		double precoGasolina = 0.00;
+		List<Combustivel> listaCombustivel;
+		CombustivelREST combustivelREST = new CombustivelREST();
 		
-		etanol = new Combustivel("Etanol");
-		precoEtanol = etanol.getPreco();
-		gasolina = new Combustivel("Gasolina");
-		precoGasolina = gasolina.getPreco();
-		
+		listaCombustivel = combustivelREST.listarCombustivel();
+
+		for(Combustivel combustivel : listaCombustivel) {
+			if(combustivel.getTipo().equals("Etanol")) {
+				precoEtanol = combustivel.getPreco();
+			}else if(combustivel.getTipo().equals("Gasolina")) {
+				precoGasolina = combustivel.getPreco();
+			}
+		}
 		
 		if((precoEtanol/precoGasolina) <= 0.7) {
-			System.out.println("Comprar "+etanol.getTipo());
+			System.out.println("Comprar Etanol");
 		}else {
-			System.out.println("Comprar "+gasolina.getTipo());
+			System.out.println("Comprar Gasolina");
 		}
 	}
 }
