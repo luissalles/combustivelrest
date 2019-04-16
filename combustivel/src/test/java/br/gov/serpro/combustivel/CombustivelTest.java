@@ -1,17 +1,26 @@
 package br.gov.serpro.combustivel;
 
-import org.junit.Assert;
 import org.junit.Test;;
 
 public class CombustivelTest {
-
+	Combustivel etanol;
+	Combustivel gasolina;
+	
 	@Test
 	public void testSeDeveAbastecerComEtanol() {
-		Combustivel etanol = new Combustivel("Etanol");
-		Combustivel gasolina = new Combustivel("Gasolina");
+		double precoEtanol;
+		double precoGasolina;
 		
-		if(etanol.getPreco()/gasolina.getPreco()<=0.7) {
-			Assert.assertEquals("Etanol", etanol.getTipo());
+		etanol = new Combustivel("Etanol");
+		precoEtanol = etanol.getPreco();
+		gasolina = new Combustivel("Gasolina");
+		precoGasolina = gasolina.getPreco();
+		
+		
+		if((precoEtanol/precoGasolina) <= 0.7) {
+			System.out.println("Comprar "+etanol.getTipo());
+		}else {
+			System.out.println("Comprar "+gasolina.getTipo());
 		}
 	}
 
